@@ -23,8 +23,8 @@ class AllNearbyStoresScreen extends StatelessWidget {
               children: [
                 BackNav(),
                 SmallHeader(
-                  heading1: "",
-                  heading2: "Stores Nearby",
+                  heading1: "Resturants",
+                  heading2: "Nearby",
                 ),
                 SizedBox(height: 30),
                 ListView.builder(
@@ -41,6 +41,9 @@ class AllNearbyStoresScreen extends StatelessWidget {
                         ),
                         elevation: 20,
                         child: ListTile(
+                          onTap: () {
+                            Navigator.pushNamed(context, "/store");
+                          },
                           leading: Image.network(
                             nearbyResturants[i].icon,
                           ),

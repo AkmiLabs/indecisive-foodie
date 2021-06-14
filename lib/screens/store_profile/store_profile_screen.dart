@@ -24,7 +24,15 @@ class StoreProfileScreen extends StatelessWidget {
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(40),
-                        topRight: Radius.circular(40))),
+                        topRight: Radius.circular(40)),
+                    boxShadow: [
+                      BoxShadow(
+                        spreadRadius: -5,
+                        blurRadius: 10,
+                        color: Colors.black.withOpacity(0.2),
+                        offset: Offset(0, -10),
+                      )
+                    ]),
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Column(

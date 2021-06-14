@@ -2,11 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:indecisivefoodie/components/dialog_box.dart';
 import 'package:indecisivefoodie/components/small_header.dart';
 import 'package:indecisivefoodie/screens/user_preferences/components/background_color_dialog_box.dart';
+import 'package:indecisivefoodie/screens/user_preferences/components/min_rating_dialog_box.dart';
 import 'package:indecisivefoodie/screens/user_preferences/components/sub_heading.dart';
 import 'package:indecisivefoodie/screens/user_preferences/components/settings_tile.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:share/share.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
+
+import 'components/about_modal_sheet.dart';
+import 'components/search_radius_dialog_box.dart';
 
 class UserPrefScreen extends StatelessWidget {
   final TextStyle whiteText = TextStyle(
@@ -53,14 +57,18 @@ class UserPrefScreen extends StatelessWidget {
                         onTap: () {
                           showDialog(
                               context: context,
-                              builder: (_) => BackgroundColorDialogBox());
+                              builder: (_) => SearchRadiusDialogBox());
                         },
                         color: Color(0xff8930CF),
                       ),
                       SettingsTile(
                         icon: Icons.attach_money,
                         label: "Maximum Price Range",
-                        onTap: () {},
+                        onTap: () {
+                          showDialog(
+                              context: context,
+                              builder: (_) => MinRatingDialogBox());
+                        },
                         color: Color(0xff20DEB0),
                       ),
                       Divider(),
@@ -90,9 +98,12 @@ class UserPrefScreen extends StatelessWidget {
                       SettingsTile(
                         icon: Icons.info_outline,
                         label: "About Indecisive Foodie",
-                        onTap: () {
-                          Navigator.pushNamed(context, "/about");
-                        },
+                        onTap: () => aboutModalSheet(context),
+
+                        // {
+
+                        //   Navigator.pushNamed(context, "/about");
+                        // },
                         color: Color(0xff98D333),
                       ),
                     ],

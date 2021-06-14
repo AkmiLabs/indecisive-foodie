@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:indecisivefoodie/models/resturants.dart';
-import 'package:indecisivefoodie/screens/about_app/about_app_screen.dart';
 import 'package:indecisivefoodie/screens/all_nearby_stores/all_nearby_stores_screen.dart';
 import 'package:indecisivefoodie/screens/food/food.dart';
 import 'package:indecisivefoodie/screens/screen_controller.dart';
@@ -36,10 +35,10 @@ class _MyAppState extends State<MyApp> {
     print("object");
 
     resturants = await ResturantsApi.instance.getNearby(
-        keyword: "",
+        keyword: "Fried Chicken",
         radius: 1000,
-        type: "restaurants",
-        userLocation: GeoPoint(4.8119283, 7.046236272219636));
+        type: "restaurant",
+        userLocation: GeoPoint(-33.93028868762633, 151.14944273336636));
     nearbyResturants = resturants;
     print(nearbyResturants[0].businessStatus);
   }
@@ -60,7 +59,6 @@ class _MyAppState extends State<MyApp> {
         '/store': (context) => StoreProfileScreen(),
         '/allstores': (context) =>
             AllNearbyStoresScreen(nearbyResturants: nearbyResturants),
-        '/about': (context) => AboutAppScreen(),
       },
     );
   }
