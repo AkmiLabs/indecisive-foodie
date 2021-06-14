@@ -12,13 +12,15 @@ class SmallHeader extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            heading1,
-            style: TextStyle(
-                fontSize: 30,
-                color: Colors.black,
-                fontFamily: "Barriecito-Regular"),
-          ),
+          heading1.length != 0
+              ? Text(
+                  heading1,
+                  style: TextStyle(
+                      fontSize: 30,
+                      color: Colors.black,
+                      fontFamily: "Barriecito-Regular"),
+                )
+              : Container(),
           Text(
             heading2,
             style: TextStyle(

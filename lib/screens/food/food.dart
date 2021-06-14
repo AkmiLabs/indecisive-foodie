@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:indecisivefoodie/components/custom_button.dart';
 import 'package:indecisivefoodie/components/small_header.dart';
-import 'package:indecisivefoodie/screens/food/components/back_nav.dart';
+import 'package:indecisivefoodie/components/back_nav.dart';
 import 'package:line_icons/line_icons.dart';
 
 class FoodScreen extends StatelessWidget {

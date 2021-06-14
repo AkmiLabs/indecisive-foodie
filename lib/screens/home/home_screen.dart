@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:indecisivefoodie/components/custom_button.dart';
-import 'package:indecisivefoodie/models/api_key.dart';
+import 'package:indecisivefoodie/models/geopoint.dart';
+import 'package:indecisivefoodie/services/api_key.dart';
 import 'package:indecisivefoodie/screens/home/components/header.dart';
 import 'package:indecisivefoodie/screens/home/components/sub_heading.dart';
 import 'package:line_icons/line_icons.dart';
@@ -28,12 +29,12 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   TextButton(
                       onPressed: () async {
-                        var googlePlace = GooglePlace(APIKey.apiKey);
+                        // var googlePlace = GooglePlace(API.key);
 
-                        //Navigator.pushNamed(context, "/food");
-                        var result = await googlePlace.search.getNearBySearch(
-                            Location(lat: -33.8670522, lng: 151.1957362), 1500,
-                            type: "restaurant", keyword: "cruise");
+                        // Navigator.pushNamed(context, "/food");
+                        // var result = await googlePlace.search.getNearBySearch(
+                        //     Location(lat: -33.8670522, lng: 151.1957362), 1500,
+                        //     type: "restaurant", keyword: "cruise");
                       },
                       child: Image.asset(
                         'assets/images/food.png',
@@ -50,8 +51,10 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     CustomButton(
                       label: "All Stores Nearby",
-                      backgroundColor: Colors.blue,
-                      onPressed: infoCallback,
+                      backgroundColor: Colors.red,
+                      onPressed: () {
+                        Navigator.pushNamed(context, "/allstores");
+                      },
                     ),
                     CustomButton(
                       label: "Preferences",

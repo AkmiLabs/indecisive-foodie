@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:indecisivefoodie/components/dialog_box.dart';
 import 'package:indecisivefoodie/components/small_header.dart';
+import 'package:indecisivefoodie/screens/user_preferences/components/background_color_dialog_box.dart';
 import 'package:indecisivefoodie/screens/user_preferences/components/sub_heading.dart';
 import 'package:indecisivefoodie/screens/user_preferences/components/settings_tile.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:share/share.dart';
+import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
 class UserPrefScreen extends StatelessWidget {
   final TextStyle whiteText = TextStyle(
@@ -46,7 +50,11 @@ class UserPrefScreen extends StatelessWidget {
                       SettingsTile(
                         icon: Icons.map_sharp,
                         label: "Search Radius",
-                        onTap: () {},
+                        onTap: () {
+                          showDialog(
+                              context: context,
+                              builder: (_) => BackgroundColorDialogBox());
+                        },
                         color: Color(0xff8930CF),
                       ),
                       SettingsTile(
@@ -60,7 +68,11 @@ class UserPrefScreen extends StatelessWidget {
                       SettingsTile(
                         icon: Icons.color_lens,
                         label: "Background Color",
-                        onTap: () {},
+                        onTap: () {
+                          showDialog(
+                              context: context,
+                              builder: (_) => BackgroundColorDialogBox());
+                        },
                         color: Color(0xFF474DFF),
                       ),
                       Divider(),
@@ -68,13 +80,19 @@ class UserPrefScreen extends StatelessWidget {
                       SettingsTile(
                         icon: Icons.share,
                         label: "Share with friends",
-                        onTap: () {},
+                        onTap: () async {
+                          await Share.share(
+                              'Download the NAATI Sinhalese App https://www.naatisinhala.com.au',
+                              subject: 'NAATI Sinhalese App');
+                        },
                         color: Color(0xffC55A42),
                       ),
                       SettingsTile(
                         icon: Icons.info_outline,
                         label: "About Indecisive Foodie",
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(context, "/about");
+                        },
                         color: Color(0xff98D333),
                       ),
                     ],
